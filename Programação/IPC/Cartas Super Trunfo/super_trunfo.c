@@ -4,8 +4,8 @@
 
 int main() {
     
-    char estate1;
-    char estate2;
+    char state1;
+    char state2;
     char code1[3];
     char code2[3];
     char cityName1[26];
@@ -29,7 +29,7 @@ int main() {
     printf("Adicione as informações da primeira carta");
 
     printf("Digite uma letra de A a H pra representar o primeiro estado: ");
-    scanf("%c", &estate1);
+    scanf("%c", &state1);
     
     code1[3] = estate1;
     strcat(code1, "01");
@@ -58,7 +58,7 @@ int main() {
     printf("\n");
     
     printf("Digite uma letra de A a H(excluindo as anteriormente usadas) para representar o segundo estado: ");
-    scanf(" %c", &estate2); //espaço antes do %c para o scan não ler o \n do buffer
+    scanf(" %c", &state2); //espaço antes do %c para o scan não ler o \n do buffer
     
     code2[3] = estate2;
     strcat(code2, "02");
@@ -84,7 +84,7 @@ int main() {
     SP2 = population2 + area2 + PIB2 + turisticPoints2 + PIBperCapta2 + DP2 *-1;
 
     printf("Carta 1 \n");
-    printf("Estado: %c\n", estate1);
+    printf("Estado: %c\n", state1);
     printf("Código: %s\n", code1);
     printf("Cidade: %s\n", cityName1);
     printf("População: %lu\n", population1);
@@ -96,7 +96,7 @@ int main() {
     printf("\n");
 
     printf("Carta 2");
-    printf("Estado: %c\n", estate2);
+    printf("Estado: %c\n", state2);
     printf("Código: %s\n", code2);
     printf("Cidade: %s\n", cityName2);
     printf("População: %lu\n", population2);
@@ -121,7 +121,7 @@ int main() {
     verif = turisticPoints1 > turisticPoints2;
     printf("Pontos turisticos : %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
     
-    verif = DP1 > DP2;
+    verif = DP1 < DP2;
     printf("Densidade populacional : %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
     
     verif = PIBperCapta1 > PIBperCapta2;
