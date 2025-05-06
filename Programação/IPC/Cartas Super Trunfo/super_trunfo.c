@@ -4,34 +4,18 @@
 
 int main() {
     
-    char state1;
-    char state2;
-    char code1[3];
-    char code2[3];
-    char cityName1[26];
-    char cityName2[26];
-    unsigned long int population1;
-    unsigned long int population2;
-    float area1;
-    float area2;
-    float PIB1;
-    float PIB2;
-    float DP1;
-    float DP2;
-    float PIBperCapta1;
-    float PIBperCapta2;
-    int turisticPoints1;
-    int turisticPoints2;
-    float SP1;
-    float SP2;
-    bool verif;
-
+    char state1, state2, code1[3], code2[3], cityName1[26], cityName2[26];
+    unsigned long int population1, population2;
+    float area1, area2, PIB1, PIB2, DP1, DP2, PIBperCapta1, PIBperCapta2, SP2, SP1;
+    int turisticPoints1, turisticPoints2;
+    /*
+    printf("\n");
     printf("Adicione as informações da primeira carta");
 
     printf("Digite uma letra de A a H pra representar o primeiro estado: ");
     scanf("%c", &state1);
     
-    code1[3] = estate1;
+    code1[3] = state1;
     strcat(code1, "01");
     
     printf("Digite o nome de uma cidade presente neste estado: ");
@@ -60,7 +44,7 @@ int main() {
     printf("Digite uma letra de A a H(excluindo as anteriormente usadas) para representar o segundo estado: ");
     scanf(" %c", &state2); //espaço antes do %c para o scan não ler o \n do buffer
     
-    code2[3] = estate2;
+    code2[3] = state2;
     strcat(code2, "02");
     
     printf("Digite o nome de uma cidade presente neste estado: ");
@@ -106,32 +90,25 @@ int main() {
     printf("Número de pontos turisticos: %d", turisticPoints2);
     printf("Super Poder: %.2f", SP2);
     printf("\n");
-    
+    */
     printf("Comparação das Cartas: \n"); 
+
+    population1 = 1, population2 = 1;
+    printf("População \n\n Carta 1: %d\n Carta 2: %d\n Resultado: %s\n", population1,population2, population1 > population2? "Carta 1 venceu" : population1 < population2? "Carta 2 venceu": "Empate");
+    /*
+    printf("Área: %s\n",area1 > area2? "Carta 1 venceu" :area1 < area2? "Carta 2 venceu": "Empate");
     
-    verif = population1 > population2;
-    printf("População : %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
+    printf("Pontos turisticos : %s\n",turisticPoints1 > turisticPoints2? "Carta 1 venceu" : turisticPoints1 < turisticPoints2? "Carta 2 venceu" : "Empate");
     
-    verif = area1 > area2;
-    printf("Área: %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
+    printf("Densidade populacional : %s\n",DP1 < DP2? "Carta 1 venceu" :DP1 > DP2? "Carta 2 venceu" : "Empate");
     
-    verif = PIB1 > PIB2;
-    printf("PIB: %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
+    printf("PIB per capta : %s\n",PIBperCapta1 > PIBperCapta2? "Carta 1 venceu" : PIBperCapta1 < PIBperCapta2? "Carta 2 venceu" : "Empate");
     
-    verif = turisticPoints1 > turisticPoints2;
-    printf("Pontos turisticos : %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
-    
-    verif = DP1 < DP2;
-    printf("Densidade populacional : %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
-    
-    verif = PIBperCapta1 > PIBperCapta2;
-    printf("PIB per capta : %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
-    
-    verif = SP1 > SP2;
-    printf("Super poder: %s\n",verif? "Carta 1 venceu" : "Carta 2 venceu");
+    printf("Super poder: %s\n",SP1 > SP2? "Carta 1 venceu" : SP1 < SP2? "Carta 2 venceu": "Empate");
+    */
     /*
     Sem estruturas condicionais adicionar "bilhões de reais" ou "milhões de reais" 
-    manualmente nao é viável ja que a variavel é do tipo float(Na terceira parte do desafio é possivel)
+    manualmente nao é viável ja que a variavel é do tipo float(Na terceira parte do desafio é possivel porem complexo sem necessidade)
     Nota1: meu pai amado como trabalhar com string em C é estranho, Jesus...
     Nota2: O C ainda continua com bug visual no VSCode(caracteres especiais)
     */
