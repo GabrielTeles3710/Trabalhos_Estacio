@@ -7,8 +7,8 @@ int main() {
     char state1, state2, code1[3], code2[3], cityName1[26], cityName2[26];
     unsigned long int population1, population2;
     float area1, area2, PIB1, PIB2, DP1, DP2, PIBperCapta1, PIBperCapta2, SP2, SP1;
-    int turisticPoints1, turisticPoints2;
-    /*
+    int turisticPoints1, turisticPoints2, selec;
+    
     printf("\n");
     printf("Adicione as informações da primeira carta");
 
@@ -67,6 +67,17 @@ int main() {
     PIBperCapta2 = PIB2 / population2;
     SP2 = population2 + area2 + PIB2 + turisticPoints2 + PIBperCapta2 + DP2 *-1;
 
+    //Menu
+    printf("Comparação das Cartas: \n"); 
+    
+    printf("Escolha um atributo das cartas para comparação digitando o número correspondente \n 1 - Informações completas das Cartas \n 2 - População \n 3 - Área \n 4 - PIB \n 5 - Número de pontos turísticos \n 6 - Densidade demográfica");
+    printf("Sua escolha: ");
+    scanf("%d", &selec);
+    printf("\n");
+
+    switch (selec)
+    {
+    case 1:
     printf("Carta 1 \n");
     printf("Estado: %c\n", state1);
     printf("Código: %s\n", code1);
@@ -76,10 +87,10 @@ int main() {
     printf("Densidade polulacional: %.2f\n", DP1);
     printf("PIB per capta: %.2f\n", PIBperCapta1);
     printf("Número de pontos turisticos: %d\n", turisticPoints1);
-    printf("Super Poder: %f", SP1);
+    printf("Super Poder: %f\n", SP1);
     printf("\n");
 
-    printf("Carta 2");
+    printf("Carta 2\n");
     printf("Estado: %c\n", state2);
     printf("Código: %s\n", code2);
     printf("Cidade: %s\n", cityName2);
@@ -87,30 +98,37 @@ int main() {
     printf("Área: %.1f\n", area2);
     printf("Densidade polulacional: %.2f\n", DP2);
     printf("PIB per capta: %.2f\n", PIBperCapta2);
-    printf("Número de pontos turisticos: %d", turisticPoints2);
-    printf("Super Poder: %.2f", SP2);
+    printf("Número de pontos turisticos: %d\n", turisticPoints2);
+    printf("Super Poder: %.2f\n", SP2);
     printf("\n");
-    */
-    printf("Comparação das Cartas: \n"); 
-
-    population1 = 1, population2 = 1;
-    printf("População \n\n Carta 1: %d\n Carta 2: %d\n Resultado: %s\n", population1,population2, population1 > population2? "Carta 1 venceu" : population1 < population2? "Carta 2 venceu": "Empate");
-    /*
-    printf("Área: %s\n",area1 > area2? "Carta 1 venceu" :area1 < area2? "Carta 2 venceu": "Empate");
-    
-    printf("Pontos turisticos : %s\n",turisticPoints1 > turisticPoints2? "Carta 1 venceu" : turisticPoints1 < turisticPoints2? "Carta 2 venceu" : "Empate");
-    
-    printf("Densidade populacional : %s\n",DP1 < DP2? "Carta 1 venceu" :DP1 > DP2? "Carta 2 venceu" : "Empate");
-    
-    printf("PIB per capta : %s\n",PIBperCapta1 > PIBperCapta2? "Carta 1 venceu" : PIBperCapta1 < PIBperCapta2? "Carta 2 venceu" : "Empate");
-    
-    printf("Super poder: %s\n",SP1 > SP2? "Carta 1 venceu" : SP1 < SP2? "Carta 2 venceu": "Empate");
-    */
-    /*
-    Sem estruturas condicionais adicionar "bilhões de reais" ou "milhões de reais" 
-    manualmente nao é viável ja que a variavel é do tipo float(Na terceira parte do desafio é possivel porem complexo sem necessidade)
-    Nota1: meu pai amado como trabalhar com string em C é estranho, Jesus...
-    Nota2: O C ainda continua com bug visual no VSCode(caracteres especiais)
-    */
+        break;
+    case 2:
+        printf("População - %s\n Carta 1: %lu\n Carta 2: %lu\n Resultado: %s\n", 
+            cityName1, population1, population2, 
+            population1 > population2 ? "Carta 1 venceu" : population1 < population2 ? "Carta 2 venceu" : "Empate");
+        break;
+    case 3:
+        printf("Área - %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1, area1, area2, 
+            area1 > area2 ? "Carta 1 venceu" : area1 < area2 ? "Carta 2 venceu" : "Empate");
+        break;
+    case 4:
+        printf("PIB per capita - %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1, PIBperCapta1, PIBperCapta2, 
+            PIBperCapta1 > PIBperCapta2 ? "Carta 1 venceu" : PIBperCapta1 < PIBperCapta2 ? "Carta 2 venceu" : "Empate");
+        break;
+    case 5:
+        printf("Pontos turísticos - %s\n Carta 1: %d\n Carta 2: %d\n Resultado: %s\n", 
+            cityName1, turisticPoints1, turisticPoints2, 
+            turisticPoints1 > turisticPoints2 ? "Carta 1 venceu" : turisticPoints1 < turisticPoints2 ? "Carta 2 venceu" : "Empate");
+        break;
+    case 6:
+        printf("Densidade populacional - %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1, DP1, DP2, 
+            DP1 < DP2 ? "Carta 1 venceu" : DP1 > DP2 ? "Carta 2 venceu" : "Empate");
+        break;
+    default:
+        break;
+    }
     return 0;
 }
