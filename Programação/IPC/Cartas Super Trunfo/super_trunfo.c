@@ -7,7 +7,7 @@ int main() {
     char state1, state2, code1[4], code2[4], cityName1[26], cityName2[26];
     unsigned long int population1, population2;
     float area1, area2, PIB1, PIB2, DP1, DP2, PIBperCapta1, PIBperCapta2, SP2, SP1;
-    int turisticPoints1, turisticPoints2, selec;
+    int turisticPoints1, turisticPoints2, escolha, selec1 = 0,selec2 = 0, print, sum1,sum2;
     
     printf("\n");
     printf("Adicione as informações da primeira carta \n");
@@ -15,14 +15,14 @@ int main() {
     printf("Digite uma letra de A a H pra representar o primeiro estado: ");
     scanf("%c", &state1);
     
-    code1[3] = state1;
+    code1[4] = state1;
     strcat(code1, "01");
     
     printf("Digite o nome de uma cidade presente neste estado: ");
     scanf("%s", cityName1);
 
     printf("Digite a população deste estado: ");
-    scanf("%lu", &population1);
+    scanf(" %lu", &population1);
 
     printf("Digite a área deste estado: ");
     scanf("%f", &area1);
@@ -34,7 +34,7 @@ int main() {
     scanf("%d", &turisticPoints1);
     printf("\n");
 
-    DP1 = area1 / population1;
+    DP1 = population1 / area1;
     PIBperCapta1 = PIB1 / population1;
     SP1 = population1 + area1 + PIB1 + turisticPoints1 + PIBperCapta1 + DP1 *-1;
 
@@ -44,14 +44,14 @@ int main() {
     printf("Digite uma letra de A a H(excluindo as anteriormente usadas) para representar o segundo estado: ");
     scanf(" %c", &state2); //espaço antes do %c para o scan não ler o \n do buffer
     
-    code2[3] = state2;
+    code2[4] = state2;
     strcat(code2, "02");
     
     printf("Digite o nome de uma cidade presente neste estado: ");
     scanf("%s", cityName2);
 
     printf("Digite a população deste estado: ");
-    scanf("%lu", &population2);
+    scanf(" %lu", &population2);
 
     printf("Digite a área deste estado: ");
     scanf("%f", &area2);
@@ -63,19 +63,52 @@ int main() {
     scanf("%d", &turisticPoints2);
     printf("\n");
     
-    DP2 = area2 / population2;
+    DP2 = population2 / area2 ;
     PIBperCapta2 = PIB2 / population2;
     SP2 = population2 + area2 + PIB2 + turisticPoints2 + PIBperCapta2 + DP2 *-1;
 
     //Menu
     printf("Comparação das Cartas: \n"); 
     
-    printf("Escolha um atributo das cartas para comparação digitando o número correspondente \n 1 - Informações completas das Cartas \n 2 - População \n 3 - Área \n 4 - PIB \n 5 - Número de pontos turísticos \n 6 - Densidade demográfica \n");
-    printf("Sua escolha: ");
-    scanf("%d", &selec);
+    printf("Escolha até dois atributos das cartas para comparação digitando o número correspondente: \n\n");
+    do
+    {
+        if (selec1 == 0 || selec2 == 0) {
+        if (selec1 != 1 && selec2 != 1) { printf("1 - Informações completas das Cartas\n"); }
+        if (selec1 != 2 && selec2 != 2) { printf("2 - População\n"); }
+        if (selec1 != 3 && selec2 != 3) { printf("3 - Área\n"); }
+        if (selec1 != 4 && selec2 != 4) { printf("4 - PIB\n"); }
+        if (selec1 != 5 && selec2 != 5) { printf("5 - PIB per capta\n"); }
+        if (selec1 != 6 && selec2 != 6) { printf("6 - Número de pontos turísticos\n"); }
+        if (selec1 != 7 && selec2 != 7) { printf("7 - Densidade demográfica\n"); }
+        if (selec1 != 8 && selec2 != 8) { printf("8 - Poder\n"); }
+    }
+    if (selec1 == 0) {
+        printf("Sua escolha: ");
+        scanf(" %d", &escolha);
+        if (escolha >= 1 && escolha <= 8) {selec1 = escolha;} else {
+            printf("Seleção inválida. Faça escolhas somente no intervalo especificado.\n");
+        }
+    } else if (selec2 == 0) {printf("Agora selecione o segundo atributo: ");
+        scanf(" %d", &escolha);
+        if (escolha == selec1) {
+            printf("Não é possível fazer duas escolhas iguais.\n\n");
+        } else if (escolha >= 1 && escolha <= 8) {
+            selec2 = escolha;
+            escolha = 0;
+        } else { 
+            printf("Seleção inválida. Tente novamente.\n\n");
+        }
+    }
+    } while (escolha != 0);
     printf("\n");
 
-    switch (selec)
+    sum1 = 0;
+    sum2 = 0;
+    print = selec1;
+    do
+    {
+    switch (print)
     {
     case 1:
     printf("Carta 1 \n");
@@ -106,29 +139,62 @@ int main() {
         printf("População - %s x %s\n Carta 1: %lu\n Carta 2: %lu\n Resultado: %s\n", 
             cityName1,cityName2, population1, population2, 
             population1 > population2 ? "Carta 1 venceu" : population1 < population2 ? "Carta 2 venceu" : "Empate");
+            sum1 = sum1 + population1;
+            sum2 = sum2 + population2;
+            printf("\n");
         break;
     case 3:
         printf("Área - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
             cityName1,cityName2, area1, area2, 
             area1 > area2 ? "Carta 1 venceu" : area1 < area2 ? "Carta 2 venceu" : "Empate");
+            sum1 = sum1 + area1;
+            sum2 = sum2 + area2;
+            printf("\n");
         break;
     case 4:
+        printf("PIB  - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1,cityName2, PIB1, PIB2, 
+            PIB1 > PIB2 ? "Carta 1 venceu" : PIB1 < PIB2 ? "Carta 2 venceu" : "Empate");
+            sum1 = sum1 + PIB1;
+            sum2 = sum2 + PIB2;
+            printf("\n");
+        break;
+    case 5:
         printf("PIB per capita - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
             cityName1,cityName2, PIBperCapta1, PIBperCapta2, 
             PIBperCapta1 > PIBperCapta2 ? "Carta 1 venceu" : PIBperCapta1 < PIBperCapta2 ? "Carta 2 venceu" : "Empate");
+            sum1 = sum1 + PIBperCapta1;
+            sum2 = sum2 + PIBperCapta2;
+            printf("\n");
         break;
-    case 5:
+    case 6:
         printf("Pontos turísticos - %s x %s\n Carta 1: %d\n Carta 2: %d\n Resultado: %s\n", 
             cityName1,cityName2, turisticPoints1, turisticPoints2, 
             turisticPoints1 > turisticPoints2 ? "Carta 1 venceu" : turisticPoints1 < turisticPoints2 ? "Carta 2 venceu" : "Empate");
-        break;
-    case 6:
+            sum1 = sum1 + turisticPoints1;
+            sum2 = sum2 + turisticPoints2;
+            printf("\n");
+        break;        
+    case 7:
         printf("Densidade populacional - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
             cityName1,cityName2, DP1, DP2, 
             DP1 < DP2 ? "Carta 1 venceu" : DP1 > DP2 ? "Carta 2 venceu" : "Empate");
+            sum1 = sum1 + DP1;
+            sum2 = sum2 + DP2;
+            printf("\n");
         break;
-    default:
+    case 8:
+        printf("Poder - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1,cityName2, SP1, SP2, 
+            SP1 < SP2 ? "Carta 1 venceu" : SP1 > SP2 ? "Carta 2 venceu" : "Empate");
+            sum1 = sum1 + SP1;
+            sum2 = sum2 + SP2;
+            printf("\n");
+        break;
         break;
     }
+    if (print == selec2){print = 0;} else {print = selec2;};
+    printf("Soma: %s\n", sum1 > sum2 ? "Carta 1 venceu  \n" : sum1 < sum2 ? "Carta 2 venceu \n" : "Empate\n");
+    } while (print != 0);
     return 0;
 }
