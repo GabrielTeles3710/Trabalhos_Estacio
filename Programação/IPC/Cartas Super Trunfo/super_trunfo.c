@@ -4,13 +4,13 @@
 
 int main() {
     
-    char state1, state2, code1[3], code2[3], cityName1[26], cityName2[26];
+    char state1, state2, code1[4], code2[4], cityName1[26], cityName2[26];
     unsigned long int population1, population2;
     float area1, area2, PIB1, PIB2, DP1, DP2, PIBperCapta1, PIBperCapta2, SP2, SP1;
     int turisticPoints1, turisticPoints2, selec;
     
     printf("\n");
-    printf("Adicione as informações da primeira carta");
+    printf("Adicione as informações da primeira carta \n");
 
     printf("Digite uma letra de A a H pra representar o primeiro estado: ");
     scanf("%c", &state1);
@@ -30,7 +30,7 @@ int main() {
     printf("Digite o PIB deste estado: ");
     scanf("%f", &PIB1);
 
-    printf("Digite o número de pontos turisticos deste estado deste estado: ");
+    printf("Digite o número de pontos turisticos deste estado: ");
     scanf("%d", &turisticPoints1);
     printf("\n");
 
@@ -38,7 +38,7 @@ int main() {
     PIBperCapta1 = PIB1 / population1;
     SP1 = population1 + area1 + PIB1 + turisticPoints1 + PIBperCapta1 + DP1 *-1;
 
-    printf("Agora adicione as informaões da segunda carta");
+    printf("Agora adicione as informações da segunda carta");
     printf("\n");
     
     printf("Digite uma letra de A a H(excluindo as anteriormente usadas) para representar o segundo estado: ");
@@ -70,7 +70,7 @@ int main() {
     //Menu
     printf("Comparação das Cartas: \n"); 
     
-    printf("Escolha um atributo das cartas para comparação digitando o número correspondente \n 1 - Informações completas das Cartas \n 2 - População \n 3 - Área \n 4 - PIB \n 5 - Número de pontos turísticos \n 6 - Densidade demográfica");
+    printf("Escolha um atributo das cartas para comparação digitando o número correspondente \n 1 - Informações completas das Cartas \n 2 - População \n 3 - Área \n 4 - PIB \n 5 - Número de pontos turísticos \n 6 - Densidade demográfica \n");
     printf("Sua escolha: ");
     scanf("%d", &selec);
     printf("\n");
