@@ -103,28 +103,28 @@ int main() {
     printf("\n");
         break;
     case 2:
-        printf("População - %s\n Carta 1: %lu\n Carta 2: %lu\n Resultado: %s\n", 
-            cityName1, population1, population2, 
+        printf("População - %s x %s\n Carta 1: %lu\n Carta 2: %lu\n Resultado: %s\n", 
+            cityName1,cityName2, population1, population2, 
             population1 > population2 ? "Carta 1 venceu" : population1 < population2 ? "Carta 2 venceu" : "Empate");
         break;
     case 3:
-        printf("Área - %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
-            cityName1, area1, area2, 
+        printf("Área - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1,cityName2, area1, area2, 
             area1 > area2 ? "Carta 1 venceu" : area1 < area2 ? "Carta 2 venceu" : "Empate");
         break;
     case 4:
-        printf("PIB per capita - %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
-            cityName1, PIBperCapta1, PIBperCapta2, 
+        printf("PIB per capita - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1,cityName2, PIBperCapta1, PIBperCapta2, 
             PIBperCapta1 > PIBperCapta2 ? "Carta 1 venceu" : PIBperCapta1 < PIBperCapta2 ? "Carta 2 venceu" : "Empate");
         break;
     case 5:
-        printf("Pontos turísticos - %s\n Carta 1: %d\n Carta 2: %d\n Resultado: %s\n", 
-            cityName1, turisticPoints1, turisticPoints2, 
+        printf("Pontos turísticos - %s x %s\n Carta 1: %d\n Carta 2: %d\n Resultado: %s\n", 
+            cityName1,cityName2, turisticPoints1, turisticPoints2, 
             turisticPoints1 > turisticPoints2 ? "Carta 1 venceu" : turisticPoints1 < turisticPoints2 ? "Carta 2 venceu" : "Empate");
         break;
     case 6:
-        printf("Densidade populacional - %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
-            cityName1, DP1, DP2, 
+        printf("Densidade populacional - %s x %s\n Carta 1: %.2f\n Carta 2: %.2f\n Resultado: %s\n", 
+            cityName1,cityName2, DP1, DP2, 
             DP1 < DP2 ? "Carta 1 venceu" : DP1 > DP2 ? "Carta 2 venceu" : "Empate");
         break;
     default:
