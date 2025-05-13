@@ -35,5 +35,17 @@ int main() {
     } while (loop <= movi);
     printf("\n");
 
+    printf("Movimento do cavalo: \n");
+    movi = 3;
+    for (int i = 1; i < movi; i++)
+    {
+        while (i < movi)
+        {
+            printf("Baixo, ");
+            i++; 
+        }
+        printf("Equerda\n");
+    }
+    
     return 0;
 }
